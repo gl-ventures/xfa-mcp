@@ -6,19 +6,20 @@ This repository is the **connector package** for AI marketplaces. The MCP server
 
 ## Where it's published
 
-| Surface | Status | Listing |
+| Surface | Status | Where to submit / find |
 | --- | --- | --- |
-| Official MCP Registry | ✅ Live | `tech.xfa/xfa` — [registry.modelcontextprotocol.io](https://registry.modelcontextprotocol.io) |
-| Glama | ⏳ Auto-crawled from the registry | |
-| Smithery | ⏳ Auto-crawled from the registry | |
-| PulseMCP | ⏳ Auto-crawled from the registry | |
-| mcp.so | ⏳ Auto-crawled from the registry | |
-| Cursor Marketplace | ⬜ Not yet submitted | [publish](https://cursor.com/marketplace/publish) |
-| Claude Connectors Directory | ⬜ Not yet submitted | |
-| ChatGPT app directory | ⬜ Not yet submitted | |
-| Gemini CLI | ✅ Installable · ⬜ gallery pending | `gemini extensions install …` |
+| Official MCP Registry | ✅ Live | `tech.xfa/xfa` · [registry.modelcontextprotocol.io](https://registry.modelcontextprotocol.io) |
+| Glama | ⏳ Propagating from registry | [glama.ai/mcp/servers](https://glama.ai/mcp/servers) |
+| Smithery | ⏳ Propagating from registry | [smithery.ai](https://smithery.ai) |
+| PulseMCP | ⏳ Propagating from registry | [pulsemcp.com](https://www.pulsemcp.com) |
+| mcp.so | ⏳ Propagating from registry | [mcp.so](https://mcp.so) |
+| Cursor Marketplace | 🕒 Pending | [cursor.com/marketplace/publish](https://cursor.com/marketplace/publish) |
+| Claude Connectors Directory | 🕒 Pending | Claude.ai → Settings → Connectors (Team/Enterprise) |
+| ChatGPT app directory | 🕒 Pending | [Apps SDK submission](https://developers.openai.com/apps-sdk/app-submission-guidelines) |
+| Gemini CLI | ✅ Installable · 🕒 gallery pending | `gemini extensions install https://github.com/gl-ventures/xfa-mcp` |
+| awesome-mcp-servers | 🕒 Pending | PR to [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) |
 
-_Legend: ✅ live · ⏳ propagating · ⬜ to do. Update this table when a listing goes live._
+_Legend: ✅ live · ⏳ propagating (no action) · 🕒 pending submission. Update a row when its listing goes live._
 
 ## Install
 
