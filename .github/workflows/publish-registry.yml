@@ -1,0 +1,73 @@
+name: MCP Registry
+
+# Validates server.json on every change, and publishes to the official
+# MCP Registry (https://registry.modelcontextprotocol.io) when server.json
+# lands on main or the workflow is run manually.
+#
+# Publishing authenticates via DNS: the private key that pairs with the
+# `v=MCPv1; k=ed25519; ...` TXT record on the xfa.tech apex is stored as the
+# repository secret MCP_REGISTRY_KEY_PEM (the PEM file, pasted whole).
+
+on:
+  push:
+    branches: [main]
+    paths: ["server.json"]
+  pull_request:
+    paths: ["server.json"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  registry:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install mcp-publisher
+        run: |
+          curl -fsSL -o mcp-publisher.tar.gz \
+            https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_linux_amd64.tar.gz
+          tar -xzf mcp-publisher.tar.gz mcp-publisher
+          sudo install -m 0755 mcp-publisher /usr/local/bin/mcp-publisher
+          mcp-publisher validate --help >/dev/null && echo "installed $(mcp-publisher | head -1)"
+
+      - name: Validate server.json
+        run: mcp-publisher validate server.json
+
+      # Only authenticate + publish on main pushes and manual runs, never on PRs
+      # (PRs from forks can't read the secret, and we don't want to publish untrusted changes).
+      - name: Authenticate (DNS)
+        if: github.event_name != 'pull_request'
+        env:
+          PEM: ${{ secrets.MCP_REGISTRY_KEY_PEM }}
+        run: |
+          if [ -z "$PEM" ]; then
+            echo "::error::MCP_REGISTRY_KEY_PEM secret is not set"; exit 1
+          fi
+          printf '%s\n' "$PEM" > key.pem
+          # Ed25519 PKCS8 DER: the 32-byte seed is the final 32 bytes of the DER encoding.
+          PRIV_HEX=$(openssl pkey -in key.pem -outform DER | tail -c 32 | od -An -v -tx1 | tr -d ' \n')
+          rm -f key.pem
+          if [ "${#PRIV_HEX}" -ne 64 ]; then
+            echo "::error::could not derive a 32-byte Ed25519 key from the PEM"; exit 1
+          fi
+          mcp-publisher login dns --domain=xfa.tech --private-key="$PRIV_HEX"
+
+      - name: Publish
+        if: github.event_name != 'pull_request'
+        run: |
+          set +e
+          OUT=$(mcp-publisher publish 2>&1); CODE=$?
+          echo "$OUT"
+          if [ $CODE -eq 0 ]; then
+            exit 0
+          fi
+          # A re-run without a version bump is not a failure — the registry
+          # rejects a duplicate version. Treat that as a no-op.
+          if echo "$OUT" | grep -qiE "already exists|version.*exist|duplicate"; then
+            echo "::notice::server.json version already published — bump the version to release a new one."
+            exit 0
+          fi
+          exit $CODE

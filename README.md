@@ -84,6 +84,18 @@ OAuth 2.0 with PKCE (S256), scope `mcp:read`. On connect you are redirected to X
 - Issues: https://github.com/gl-ventures/xfa-mcp/issues
 - Email: support@xfa.tech
 
+## Maintainers
+
+The [`MCP Registry` workflow](.github/workflows/publish-registry.yml) validates `server.json`
+on every change and publishes to the [official MCP Registry](https://registry.modelcontextprotocol.io)
+on pushes to `main` (or via **Run workflow**). It authenticates by DNS against the
+`v=MCPv1` TXT record on the `xfa.tech` apex.
+
+To release a new version: bump `version` in `server.json`, merge to `main`.
+
+Required repo secret: **`MCP_REGISTRY_KEY_PEM`** — the Ed25519 private key PEM
+(pairs with the DNS TXT record). Keep the matching key backed up in a password manager.
+
 ## License
 
 MIT — see [LICENSE](LICENSE).
