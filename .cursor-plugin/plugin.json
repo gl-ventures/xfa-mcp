@@ -1,6 +1,6 @@
 {
   "name": "xfa-mcp",
-  "description": "Connect AI assistants to your XFA device-security data over MCP.",
+  "description": "XFA — BYOD device trust. Read your organization's device posture, compliance, policies, and software/CVE status from an AI assistant. Read-only.",
   "version": "0.1.0",
   "author": {
     "name": "XFA",
