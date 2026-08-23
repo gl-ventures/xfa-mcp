@@ -1,0 +1,17 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "tech.xfa/xfa",
+  "description": "Connect AI assistants to your XFA device-security data over MCP.",
+  "version": "0.1.0",
+  "websiteUrl": "https://xfa.tech",
+  "repository": {
+    "url": "https://github.com/gl-ventures/xfa-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.xfa.tech/mcp"
+    }
+  ]
+}
