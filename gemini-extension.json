@@ -1,7 +1,7 @@
 {
   "name": "xfa-mcp",
   "version": "0.1.0",
-  "description": "XFA — BYOD device trust. Read your organization's device posture, compliance, policies, and software/CVE status from Gemini. Read-only.",
+  "description": "XFA's remote MCP server — query your organization's device posture, compliance, policies, and software/CVE status from Gemini. Read-only.",
   "mcpServers": {
     "xfa": {
       "httpUrl": "https://mcp.xfa.tech/mcp",

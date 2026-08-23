@@ -1,8 +1,8 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "tech.xfa/xfa",
-  "description": "XFA BYOD device trust: read device posture, compliance, policies & CVEs from an AI assistant.",
-  "version": "0.1.1",
+  "description": "XFA's remote MCP server — query device posture, compliance, policies & CVEs. Read-only.",
+  "version": "0.1.2",
   "websiteUrl": "https://xfa.tech",
   "repository": {
     "url": "https://github.com/gl-ventures/xfa-mcp",

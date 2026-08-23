@@ -1,6 +1,6 @@
 # XFA MCP
 
-[XFA](https://xfa.tech) is a BYOD device-trust platform. This is its remote [Model Context Protocol](https://modelcontextprotocol.io) server — it lets Claude, ChatGPT, Cursor, and other AI assistants read your organization's XFA data (device posture, compliance, policies, software/CVE status) from inside your AI tools, read-only.
+[XFA](https://xfa.tech) is a BYOD device-trust platform. This is **XFA's remote [Model Context Protocol](https://modelcontextprotocol.io) server** — query your organization's device posture, compliance, policies, and software/CVE status from Claude, ChatGPT, Cursor, and other AI assistants. Read-only.
 
 This repository is the **connector package** for AI marketplaces. The MCP server itself is hosted by XFA at `https://mcp.xfa.tech/mcp`; nothing runs locally. Authentication is OAuth 2.0 (PKCE) — you sign in with your XFA account on connect.
 

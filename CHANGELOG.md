@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2
+
+- Lead descriptions with "XFA's remote MCP server — query your organization's …".
+
 ## 0.1.1
 
 - Reword descriptions to lead with XFA the product (BYOD device trust) rather than "an MCP server", matching how service vendors list.
