@@ -1,12 +1,7 @@
 {
   "mcpServers": {
     "xfa": {
-      "url": "https://mcp.xfa.tech/mcp",
-      "transport": "sse",
-      "auth": {
-        "type": "oauth2",
-        "scopes": ["read"]
-      }
+      "url": "https://mcp.xfa.tech/mcp"
     }
   }
 }

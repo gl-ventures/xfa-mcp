@@ -38,14 +38,35 @@ Point the client at the remote URL `https://mcp.xfa.tech/mcp` (streamable HTTP /
 
 ## Tools
 
-<!-- TODO: list the tools the server exposes, e.g. -->
-- `list_devices` — list enrolled devices and their trust status
-- `get_device_posture` — posture and failed checks for a device
-- `get_org_compliance` — org-wide compliance summary
+All tools are read-only.
+
+**Your organization** (scoped to the signed-in user's org)
+
+| Tool | Description |
+| --- | --- |
+| `get_organization` | Get your XFA organization |
+| `get_current_user` | Get the signed-in user |
+| `list_devices` | List devices (active in the last 30 days) |
+| `get_device` | Get a single device |
+| `get_compliance_summary` | Org-wide compliance summary |
+| `get_posture_trends` | Posture trends over time |
+| `list_policies` | List policies |
+
+**Software & vulnerabilities** (XFA's tracked-software catalog)
+
+| Tool | Description |
+| --- | --- |
+| `get_latest_version` | Latest known version of a piece of software |
+| `list_versioned_software_catalog` | List the software XFA tracks |
+| `get_software_version_info` | Status of a specific software version |
+| `get_cves_for_version` | CVEs affecting a software version |
 
 ## Authentication
 
-OAuth 2.0 with PKCE. On connect you are redirected to XFA to authorize; no API keys or tokens are stored in this package. The client discovers OAuth endpoints from the server's `/.well-known` metadata.
+OAuth 2.0 with PKCE (S256), scope `mcp:read`. On connect you are redirected to XFA to authorize; no API keys or tokens are stored in this package. The client auto-discovers the OAuth endpoints from the server's already-published metadata:
+
+- `https://mcp.xfa.tech/.well-known/oauth-protected-resource`
+- `https://mcp.xfa.tech/.well-known/oauth-authorization-server`
 
 ## Support
 
