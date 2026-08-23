@@ -17,7 +17,7 @@ This repository is the **connector package** for AI marketplaces. The MCP server
 | Claude Connectors Directory | 🕒 Pending | Claude.ai → Settings → Connectors (Team/Enterprise) |
 | ChatGPT app directory | 🕒 Pending | [Apps SDK submission](https://developers.openai.com/apps-sdk/app-submission-guidelines) |
 | Gemini / Antigravity CLI | ✅ Installable · ⏳ gallery auto-crawl | `gemini-cli-extension` topic set; also via the MCP Registry |
-| awesome-mcp-servers | 🕒 Pending | PR to [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) |
+| awesome-mcp-servers | 🕒 PR open — [#12739](https://github.com/punkpeye/awesome-mcp-servers/pull/12739) | Security section |
 
 _Legend: ✅ live · ⏳ propagating (no action) · 🕒 pending. Update a row when its listing goes live._
 
