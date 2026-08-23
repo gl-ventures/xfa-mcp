@@ -13,13 +13,18 @@ This repository is the **connector package** for AI marketplaces. The MCP server
 | Smithery | ⏳ Propagating from registry | [smithery.ai](https://smithery.ai) |
 | PulseMCP | ⏳ Propagating from registry | [pulsemcp.com](https://www.pulsemcp.com) |
 | mcp.so | ⏳ Propagating from registry | [mcp.so](https://mcp.so) |
-| Cursor Marketplace | 🕒 Pending | [cursor.com/marketplace/publish](https://cursor.com/marketplace/publish) |
+| Cursor Marketplace | 🕒 Submitted — pending approval | [cursor.com/marketplace/publish](https://cursor.com/marketplace/publish) |
 | Claude Connectors Directory | 🕒 Pending | Claude.ai → Settings → Connectors (Team/Enterprise) |
 | ChatGPT app directory | 🕒 Pending | [Apps SDK submission](https://developers.openai.com/apps-sdk/app-submission-guidelines) |
-| Gemini CLI | ✅ Installable · 🕒 gallery pending | `gemini extensions install https://github.com/gl-ventures/xfa-mcp` |
+| Gemini / Antigravity CLI | ✅ Installable · ⏳ gallery auto-crawl | `gemini-cli-extension` topic set; also via the MCP Registry |
 | awesome-mcp-servers | 🕒 Pending | PR to [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) |
 
-_Legend: ✅ live · ⏳ propagating (no action) · 🕒 pending submission. Update a row when its listing goes live._
+_Legend: ✅ live · ⏳ propagating (no action) · 🕒 pending. Update a row when its listing goes live._
+
+> **Gemini note:** the Gemini CLI gallery has no submission form — it crawls public repos
+> tagged with the `gemini-cli-extension` GitHub topic daily (already set). Gemini CLI merged
+> into **Antigravity CLI** (June 2026); Antigravity discovers MCP servers via the MCP Registry,
+> where this server is already live, so no separate Antigravity submission is needed.
 
 ## Install
 
