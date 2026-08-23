@@ -1,0 +1,15 @@
+{
+  "name": "xfa-mcp",
+  "description": "Connect AI assistants to your XFA device-security data over MCP.",
+  "version": "0.1.0",
+  "author": {
+    "name": "XFA",
+    "email": "support@xfa.tech"
+  },
+  "homepage": "https://xfa.tech",
+  "repository": "https://github.com/gl-ventures/xfa-mcp",
+  "license": "MIT",
+  "keywords": ["security", "device-trust", "byod", "compliance", "mcp"],
+  "logo": "logo.png",
+  "mcpServers": "mcp.json"
+}
