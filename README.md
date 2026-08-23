@@ -48,7 +48,7 @@ Point the client at the remote URL `https://mcp.xfa.tech/mcp` (streamable HTTP /
 
 ## Tools
 
-All tools are read-only.
+All tools are read-only. The live server is the source of truth — clients fetch the current tool list from the endpoint on every connection, so this list may lag the deployed server. See the [Connect an AI assistant](https://docs.xfa.tech/admin/connect-ai-assistant) docs for the maintained reference.
 
 **Your organization** (scoped to the signed-in user's org)
 
@@ -80,7 +80,7 @@ OAuth 2.0 with PKCE (S256), scope `mcp:read`. On connect you are redirected to X
 
 ## Support
 
-- Docs: https://docs.xfa.tech
+- Docs: https://docs.xfa.tech/admin/connect-ai-assistant
 - Issues: https://github.com/gl-ventures/xfa-mcp/issues
 - Email: support@xfa.tech
 
