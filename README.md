@@ -32,6 +32,16 @@ Settings → Connectors → Add custom connector → URL `https://mcp.xfa.tech/m
 
 Settings → Connectors → Add → MCP server URL `https://mcp.xfa.tech/mcp`.
 
+### Gemini CLI
+
+Install the extension:
+
+```
+gemini extensions install https://github.com/gl-ventures/xfa-mcp
+```
+
+The bundled `gemini-extension.json` points at the remote server; Gemini discovers OAuth from the server metadata and prompts you to sign in on first use.
+
 ### VS Code / Windsurf / Zed / other MCP clients
 
 Point the client at the remote URL `https://mcp.xfa.tech/mcp` (streamable HTTP / SSE, OAuth 2.0).

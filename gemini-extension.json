@@ -1,0 +1,12 @@
+{
+  "name": "xfa-mcp",
+  "version": "0.1.0",
+  "description": "Connect Gemini to your XFA device-security data over MCP.",
+  "mcpServers": {
+    "xfa": {
+      "httpUrl": "https://mcp.xfa.tech/mcp",
+      "authProviderType": "dynamic_discovery",
+      "timeout": 30000
+    }
+  }
+}
