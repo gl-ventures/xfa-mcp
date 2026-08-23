@@ -1,0 +1,168 @@
+{
+  "$schema": "https://developers.openai.com/apps-sdk/schemas/chatgpt-app-submission.v1.json",
+  "schema_version": 1,
+  "app_info": {
+    "display_name": "XFA",
+    "subtitle": "Query your device-trust data",
+    "description": "XFA's remote MCP server lets your team query their organization's device posture, compliance summary, policies, and tracked-software/CVE status from ChatGPT. Read-only and scoped to the single organization the signed-in user approves.",
+    "category": "BUSINESS"
+  },
+  "tools": {
+    "get_organization": {
+      "annotations": { "readOnlyHint": true, "openWorldHint": false, "destructiveHint": false },
+      "justifications": {
+        "read_only_justification": "Only retrieves the caller's XFA organization details and does not modify data.",
+        "open_world_justification": "Reads only the organization's private XFA data and does not write to the public internet or third-party systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform any irreversible action."
+      }
+    },
+    "get_current_user": {
+      "annotations": { "readOnlyHint": true, "openWorldHint": false, "destructiveHint": false },
+      "justifications": {
+        "read_only_justification": "Only returns the signed-in user's profile and does not modify data.",
+        "open_world_justification": "Reads only the signed-in user's private XFA profile and does not touch external systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform any irreversible action."
+      }
+    },
+    "list_devices": {
+      "annotations": { "readOnlyHint": true, "openWorldHint": false, "destructiveHint": false },
+      "justifications": {
+        "read_only_justification": "Only lists the organization's devices and does not modify data.",
+        "open_world_justification": "Reads only the organization's private device inventory and does not touch external systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform any irreversible action."
+      }
+    },
+    "get_device": {
+      "annotations": { "readOnlyHint": true, "openWorldHint": false, "destructiveHint": false },
+      "justifications": {
+        "read_only_justification": "Only retrieves a single device's details and does not modify data.",
+        "open_world_justification": "Reads only one device record from the organization's private XFA data and does not touch external systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform any irreversible action."
+      }
+    },
+    "get_compliance_summary": {
+      "annotations": { "readOnlyHint": true, "openWorldHint": false, "destructiveHint": false },
+      "justifications": {
+        "read_only_justification": "Only computes the organization's compliance summary and does not modify data.",
+        "open_world_justification": "Aggregates only the organization's private compliance data and does not touch external systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform any irreversible action."
+      }
+    },
+    "get_posture_trends": {
+      "annotations": { "readOnlyHint": true, "openWorldHint": false, "destructiveHint": false },
+      "justifications": {
+        "read_only_justification": "Only reads historical posture-trend data and does not modify data.",
+        "open_world_justification": "Reads only the organization's private historical posture data and does not touch external systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform any irreversible action."
+      }
+    },
+    "list_policies": {
+      "annotations": { "readOnlyHint": true, "openWorldHint": false, "destructiveHint": false },
+      "justifications": {
+        "read_only_justification": "Only lists the organization's policies and does not modify data.",
+        "open_world_justification": "Reads only the organization's private policy configuration and does not touch external systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform any irreversible action."
+      }
+    },
+    "get_latest_version": {
+      "annotations": { "readOnlyHint": true, "openWorldHint": false, "destructiveHint": false },
+      "justifications": {
+        "read_only_justification": "Only looks up the latest known version of a software title and does not modify data.",
+        "open_world_justification": "Reads only XFA's own software catalog and does not write to external systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform any irreversible action."
+      }
+    },
+    "list_versioned_software_catalog": {
+      "annotations": { "readOnlyHint": true, "openWorldHint": false, "destructiveHint": false },
+      "justifications": {
+        "read_only_justification": "Only lists the software titles XFA tracks and does not modify data.",
+        "open_world_justification": "Reads only XFA's own software catalog and does not write to external systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform any irreversible action."
+      }
+    },
+    "get_software_version_info": {
+      "annotations": { "readOnlyHint": true, "openWorldHint": false, "destructiveHint": false },
+      "justifications": {
+        "read_only_justification": "Only retrieves the status of a software version and does not modify data.",
+        "open_world_justification": "Reads only XFA's own software catalog and does not write to external systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform any irreversible action."
+      }
+    },
+    "get_cves_for_version": {
+      "annotations": { "readOnlyHint": true, "openWorldHint": false, "destructiveHint": false },
+      "justifications": {
+        "read_only_justification": "Only retrieves the CVEs affecting a software version and does not modify data.",
+        "open_world_justification": "Reads only XFA's own vulnerability catalog and does not write to external systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform any irreversible action."
+      }
+    }
+  },
+  "test_cases": [
+    {
+      "description": "Identify the organization the user is connected to.",
+      "user_prompt": "What organization am I connected to in XFA?",
+      "file_attachment_urls": null,
+      "tools_triggered": "get_organization",
+      "expected_output": "Returns the name and key details of the organization the signed-in user approved.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Summarize device compliance for the organization.",
+      "user_prompt": "How many of our devices are non-compliant right now?",
+      "file_attachment_urls": null,
+      "tools_triggered": "get_compliance_summary",
+      "expected_output": "Returns a compliance summary with compliant vs non-compliant device counts.",
+      "expected_output_url": null
+    },
+    {
+      "description": "List the organization's devices.",
+      "user_prompt": "List our devices that were active in the last 30 days.",
+      "file_attachment_urls": null,
+      "tools_triggered": "list_devices",
+      "expected_output": "Returns the organization's recently active devices with their trust status.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Review configured security policies.",
+      "user_prompt": "Which security policies do we have configured?",
+      "file_attachment_urls": null,
+      "tools_triggered": "list_policies",
+      "expected_output": "Returns the list of policies configured for the organization.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Check known vulnerabilities for a software version.",
+      "user_prompt": "Are there known CVEs for Google Chrome 120?",
+      "file_attachment_urls": null,
+      "tools_triggered": "get_cves_for_version",
+      "expected_output": "Returns the CVEs XFA tracks for that software version, if any.",
+      "expected_output_url": null
+    }
+  ],
+  "negative_test_cases": [
+    {
+      "description": "Do not attempt destructive device actions.",
+      "user_prompt": "Delete the laptop belonging to john@example.com.",
+      "file_attachment_urls": null,
+      "tools_triggered": null,
+      "expected_output": "The app should not be invoked because it is read-only and cannot delete or change devices.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Do not attempt enrollment or write actions.",
+      "user_prompt": "Enroll a new device into our organization.",
+      "file_attachment_urls": null,
+      "tools_triggered": null,
+      "expected_output": "The app should not be invoked because it cannot create or modify records.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Do not trigger for unrelated requests.",
+      "user_prompt": "What's the weather in Brussels today?",
+      "file_attachment_urls": null,
+      "tools_triggered": null,
+      "expected_output": "The app should not be invoked because the request is outside its device-trust workflows.",
+      "expected_output_url": null
+    }
+  ]
+}
