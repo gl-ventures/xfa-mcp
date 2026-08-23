@@ -4,6 +4,22 @@ Remote [Model Context Protocol](https://modelcontextprotocol.io) server for [XFA
 
 This repository is the **connector package** for AI marketplaces. The MCP server itself is hosted by XFA at `https://mcp.xfa.tech/mcp`; nothing runs locally. Authentication is OAuth 2.0 (PKCE) — you sign in with your XFA account on connect.
 
+## Where it's published
+
+| Surface | Status | Listing |
+| --- | --- | --- |
+| Official MCP Registry | ✅ Live | `tech.xfa/xfa` — [registry.modelcontextprotocol.io](https://registry.modelcontextprotocol.io) |
+| Glama | ⏳ Auto-crawled from the registry | |
+| Smithery | ⏳ Auto-crawled from the registry | |
+| PulseMCP | ⏳ Auto-crawled from the registry | |
+| mcp.so | ⏳ Auto-crawled from the registry | |
+| Cursor Marketplace | ⬜ Not yet submitted | [publish](https://cursor.com/marketplace/publish) |
+| Claude Connectors Directory | ⬜ Not yet submitted | |
+| ChatGPT app directory | ⬜ Not yet submitted | |
+| Gemini CLI | ✅ Installable · ⬜ gallery pending | `gemini extensions install …` |
+
+_Legend: ✅ live · ⏳ propagating · ⬜ to do. Update this table when a listing goes live._
+
 ## Install
 
 ### Cursor
