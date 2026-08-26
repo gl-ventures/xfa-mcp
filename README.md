@@ -14,8 +14,8 @@ This repository is the **connector package** for AI marketplaces. The MCP server
 | PulseMCP | ⏳ Propagating from registry | [pulsemcp.com](https://www.pulsemcp.com) |
 | mcp.so | ⏳ Propagating from registry | [mcp.so](https://mcp.so) |
 | Cursor Marketplace | 🕒 Submitted — pending approval | [cursor.com/marketplace/publish](https://cursor.com/marketplace/publish) |
-| Claude Connectors Directory | 🕒 Pending | Claude.ai → Settings → Connectors (Team/Enterprise) |
-| ChatGPT app directory | 🕒 Pending | [Apps SDK submission](https://developers.openai.com/apps-sdk/app-submission-guidelines) |
+| Claude Connectors Directory | ✅ Live | [claude.ai/directory/mcp-xfa-tech](https://claude.ai/directory/mcp-xfa-tech) |
+| ChatGPT app directory | 🕒 Submitted — pending review | [Apps SDK submission](https://developers.openai.com/apps-sdk/app-submission-guidelines) |
 | Gemini / Antigravity CLI | ✅ Installable · ⏳ gallery auto-crawl | `gemini-cli-extension` topic set; also via the MCP Registry |
 | awesome-mcp-servers | 🕒 PR open — [#12739](https://github.com/punkpeye/awesome-mcp-servers/pull/12739) | Security section |
 
