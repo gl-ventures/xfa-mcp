@@ -1,6 +1,8 @@
 # XFA MCP
 
-[XFA](https://xfa.tech) is a BYOD device-trust platform. This is **XFA's remote [Model Context Protocol](https://modelcontextprotocol.io) server** — query your organization's device posture, compliance, policies, and software/CVE status from Claude, ChatGPT, Cursor, and other AI assistants. Read-only.
+[XFA](https://xfa.tech) checks every device at sign-in and guides people to fix issues themselves: they press Fix and approve the suggested fix, or follow a step by step guide, and XFA checks again. It covers company, personal and contractor laptops and phones with no MDM, warns people early, and blocks a sign-in only when your organization chooses to.
+
+This is **XFA device security**, XFA's remote [Model Context Protocol](https://modelcontextprotocol.io) server. Ask Claude, ChatGPT, Cursor and other AI assistants about your organization's devices, their check results, how well they meet your policy, and software versions and known vulnerabilities (CVEs). Read-only, and scoped to the one organization you approve when you sign in.
 
 This repository is the **connector package** for AI marketplaces. The MCP server itself is hosted by XFA at `https://mcp.xfa.tech/mcp`; nothing runs locally. Authentication is OAuth 2.0 (PKCE) — you sign in with your XFA account on connect.
 
@@ -80,8 +82,8 @@ All tools are read-only. The live server is the source of truth — clients fetc
 | `get_current_user` | Get the signed-in user |
 | `list_devices` | List devices (active in the last 30 days) |
 | `get_device` | Get a single device |
-| `get_compliance_summary` | Org-wide compliance summary |
-| `get_posture_trends` | Posture trends over time |
+| `get_compliance_summary` | How well the organization meets its policy |
+| `get_posture_trends` | Check results over time |
 | `list_policies` | List policies |
 
 **Software & vulnerabilities** (XFA's tracked-software catalog)

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.3
+
+- Match the xfa.tech value proposition (XFA-3775): descriptions now say "XFA device security" and what the server answers, instead of "device trust". Add the server `title`.
+
 ## 0.1.2
 
 - Lead descriptions with "XFA's remote MCP server — query your organization's …".

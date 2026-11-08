@@ -1,6 +1,6 @@
 {
   "name": "xfa-mcp",
-  "description": "XFA's remote MCP server — query your organization's device posture, compliance, policies, and software/CVE status from an AI assistant. Read-only.",
+  "description": "XFA device security in your AI assistant: ask about your organization's devices, their check results, how well they meet your policy, and software versions and CVEs. Read-only.",
   "version": "0.1.0",
   "author": {
     "name": "XFA",
@@ -9,7 +9,7 @@
   "homepage": "https://xfa.tech",
   "repository": "https://github.com/gl-ventures/xfa-mcp",
   "license": "MIT",
-  "keywords": ["security", "device-trust", "byod", "compliance", "mcp"],
+  "keywords": ["security", "device-security", "byod", "compliance", "mcp"],
   "logo": "logo.png",
   "mcpServers": "mcp.json"
 }

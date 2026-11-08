@@ -3,8 +3,8 @@
   "schema_version": 1,
   "app_info": {
     "display_name": "XFA",
-    "subtitle": "Query your device-trust data",
-    "description": "XFA's remote MCP server lets your team query their organization's device posture, compliance summary, policies, and tracked-software/CVE status from ChatGPT. Read-only and scoped to the single organization the signed-in user approves.",
+    "subtitle": "Ask about your device security",
+    "description": "XFA checks every device at sign-in and guides people to fix issues themselves, on company, personal and contractor laptops and phones, with no MDM. Ask ChatGPT about your organization's devices, their check results, how well they meet your policy, and software versions and known vulnerabilities (CVEs). Read-only, and scoped to the one organization the signed-in user approves.",
     "category": "BUSINESS"
   },
   "tools": {
@@ -119,7 +119,7 @@
       "user_prompt": "List our devices that were active in the last 30 days.",
       "file_attachment_urls": null,
       "tools_triggered": "list_devices",
-      "expected_output": "Returns the organization's recently active devices with their trust status.",
+      "expected_output": "Returns the organization's recently active devices with their check results.",
       "expected_output_url": null
     },
     {
@@ -161,7 +161,7 @@
       "user_prompt": "What's the weather in Brussels today?",
       "file_attachment_urls": null,
       "tools_triggered": null,
-      "expected_output": "The app should not be invoked because the request is outside its device-trust workflows.",
+      "expected_output": "The app should not be invoked because the request is outside its device security questions.",
       "expected_output_url": null
     }
   ]
