@@ -1,8 +1,8 @@
 # XFA MCP
 
-[XFA](https://xfa.tech) does two things: **Discover all devices** and **Verify device security at sign-in**. When a check fails, people fix it themselves: they press Fix and approve the suggested fix where XFA offers one, or follow a step by step guide, and XFA checks again. It covers company, personal and contractor laptops and phones with no MDM. It warns people first; whether a sign-in is blocked depends on your organization's policy and plan.
+[XFA](https://xfa.tech)'s two main features are **Discover all devices** and **Verify device security at sign-in**. When a check fails, people fix it themselves: they press Fix and approve the suggested fix where XFA offers one, or follow a step by step guide, and XFA checks again. It covers company, personal and contractor laptops and phones with no MDM. It can warn people before blocking them; whether a sign-in gets a warning or a block depends on your organization's policy and plan.
 
-This is **XFA device security**, XFA's remote [Model Context Protocol](https://modelcontextprotocol.io) server. Ask Claude, ChatGPT, Cursor and other AI assistants about your organization's devices, their check results, how well they meet your policy, and OS and browser versions and known vulnerabilities (CVEs). Read-only, and scoped to the one organization you approve when you sign in.
+This is **XFA device security**, XFA's remote [Model Context Protocol](https://modelcontextprotocol.io) server. Ask Claude, ChatGPT, Cursor and other AI assistants about your organization's devices, their check results, how well they meet your policy, and whether the OS and last-used browser are up to date, and known vulnerabilities (CVEs). Read-only, and scoped to the one organization you approve when you sign in.
 
 This repository is the **connector package** for AI marketplaces. The MCP server itself is hosted by XFA at `https://mcp.xfa.tech/mcp`; nothing runs locally. Authentication is OAuth 2.0 (PKCE) — you sign in with your XFA account on connect.
 

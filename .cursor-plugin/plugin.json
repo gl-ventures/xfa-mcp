@@ -1,6 +1,6 @@
 {
   "name": "xfa-mcp",
-  "description": "XFA device security in your AI assistant: ask about your organization's devices, check results, policy status, and OS and browser versions and CVEs. Read-only.",
+  "description": "XFA device security in your AI assistant: ask about your organization's devices, check results, policy status, and whether OS and browser are up to date, and CVEs. Read-only.",
   "version": "0.1.0",
   "author": {
     "name": "XFA",
