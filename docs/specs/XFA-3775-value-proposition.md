@@ -14,22 +14,35 @@ Lars, 2026-11-08: "the new value proposition is xfa.tech". Wording comes from
 xfa.tech `public/llms.txt` on main and the server instructions in xfa-api#892
 (`lambdas/api-mcp/main.go`, `instructionsText`):
 
-- XFA checks every device at sign-in and guides people to fix issues themselves.
+- Two features: "Discover all devices" and "Verify device security at sign-in".
+- When a check fails, people fix it themselves.
 - Category word: "device security". Never "device trust".
-- Fixing: a Fix button the person approves, or a step by step guide; XFA checks again.
-- Company, personal and contractor laptops and phones, no MDM. Warns early, blocks
-  only when the organization chooses to.
+- Fixing: a Fix button the person approves, where XFA offers one, or a step by step
+  guide; XFA checks again.
+- Company, personal and contractor laptops and phones, no MDM. Warns first; whether
+  a sign-in is blocked depends on the organization's policy and plan.
 - The server: read-only, scoped to the one organization the signed-in user approves;
   answers questions about the organization's devices, their check results, how well
-  they meet its policy, and software versions and CVEs.
+  they meet its policy, and OS and browser versions and known vulnerabilities (CVEs).
 
 ## Decisions
 
+- Lars, 2026-11-09: the two feature names are "Discover all devices" and "Verify
+  device security at sign-in". "Discovery" and "Enforcement" are out. Listings lead
+  with these names.
+- 2026-11-09: "XFA checks every device" is removed everywhere. It is false:
+  application filters and Skip managed devices let sign-ins through unchecked.
+- 2026-11-09: "blocks only when your organization chooses" became "depends on the
+  organization's policy and plan", because the plan decides too.
+- 2026-11-09: "software versions and CVEs" read as an inventory of the
+  organization's software. Per device the server only knows the OS and last-used
+  browser; the version tools read XFA's global catalog. Listings now say "OS and
+  browser versions".
 - Only descriptive text changes. Names, ids, URLs and tool names stay the same
   (tool names checked against xfa-api#892).
 - `server.json` gets a `title` of "XFA device security", matching the server's
   own title in xfa-api#892. Schema limit: 100 characters for `title` and
-  `description`; the new description is 96.
+  `description`; the new description is 92.
 - `server.json` version 0.1.2 → 0.1.3: the MCP Registry rejects a republish of an
   existing version. Gemini and Cursor manifest versions stay at 0.1.0 (the
   Gemini gallery crawls the repo; the Cursor listing is still pending review).
@@ -42,17 +55,17 @@ xfa.tech `public/llms.txt` on main and the server instructions in xfa-api#892
 
 | Where | Before | After |
 | --- | --- | --- |
-| README intro | XFA is a BYOD device-trust platform. This is XFA's remote MCP server — query your organization's device posture, compliance, policies, and software/CVE status from Claude, ChatGPT, Cursor, and other AI assistants. Read-only. | XFA checks every device at sign-in and guides people to fix issues themselves: they press Fix and approve the suggested fix, or follow a step by step guide, and XFA checks again. It covers company, personal and contractor laptops and phones with no MDM, warns people early, and blocks a sign-in only when your organization chooses to. / This is XFA device security, XFA's remote MCP server. Ask Claude, ChatGPT, Cursor and other AI assistants about your organization's devices, their check results, how well they meet your policy, and software versions and known vulnerabilities (CVEs). Read-only, and scoped to the one organization you approve when you sign in. |
+| README intro | XFA is a BYOD device-trust platform. This is XFA's remote MCP server — query your organization's device posture, compliance, policies, and software/CVE status from Claude, ChatGPT, Cursor, and other AI assistants. Read-only. | [XFA](https://xfa.tech) does two things: **Discover all devices** and **Verify device security at sign-in**. When a check fails, people fix it themselves: they press Fix and approve the suggested fix where XFA offers one, or follow a step by step guide, and XFA checks again. It covers company, personal and contractor laptops and phones with no MDM. It warns people first; whether a sign-in is blocked depends on your organization's policy and plan. / This is XFA device security, XFA's remote MCP server. Ask Claude, ChatGPT, Cursor and other AI assistants about your organization's devices, their check results, how well they meet your policy, and OS and browser versions and known vulnerabilities (CVEs). Read-only, and scoped to the one organization you approve when you sign in. |
 | README tools: `get_compliance_summary` | Org-wide compliance summary | How well the organization meets its policy |
-| README tools: `get_posture_trends` | Posture trends over time | Check results over time |
+| README tools: `get_posture_trends` | Posture trends over time | A few check figures over time |
 | server.json `title` | (none) | XFA device security |
-| server.json `description` | XFA's remote MCP server — query device posture, compliance, policies & CVEs. Read-only. | XFA device security, read-only: your organization's devices, check results, compliance and CVEs. |
+| server.json `description` | XFA's remote MCP server — query device posture, compliance, policies & CVEs. Read-only. | Ask which devices pass XFA's sign-in checks, meet your policy or have known CVEs. Read-only. |
 | server.json `version` | 0.1.2 | 0.1.3 |
-| gemini-extension.json `description` | XFA's remote MCP server — query your organization's device posture, compliance, policies, and software/CVE status from Gemini. Read-only. | XFA device security in Gemini: ask about your organization's devices, their check results, how well they meet your policy, and software versions and CVEs. Read-only. |
-| .cursor-plugin/plugin.json `description` | XFA's remote MCP server — query your organization's device posture, compliance, policies, and software/CVE status from an AI assistant. Read-only. | XFA device security in your AI assistant: ask about your organization's devices, their check results, how well they meet your policy, and software versions and CVEs. Read-only. |
+| gemini-extension.json `description` | XFA's remote MCP server — query your organization's device posture, compliance, policies, and software/CVE status from Gemini. Read-only. | XFA device security in Gemini: ask about your organization's devices, check results, policy status, and OS and browser versions and CVEs. Read-only. |
+| .cursor-plugin/plugin.json `description` | XFA's remote MCP server — query your organization's device posture, compliance, policies, and software/CVE status from an AI assistant. Read-only. | XFA device security in your AI assistant: ask about your organization's devices, check results, policy status, and OS and browser versions and CVEs. Read-only. |
 | .cursor-plugin/plugin.json `keywords` | device-trust | device-security |
-| ChatGPT `subtitle` | Query your device-trust data | Ask about your device security |
-| ChatGPT `description` | XFA's remote MCP server lets your team query their organization's device posture, compliance summary, policies, and tracked-software/CVE status from ChatGPT. Read-only and scoped to the single organization the signed-in user approves. | XFA checks every device at sign-in and guides people to fix issues themselves, on company, personal and contractor laptops and phones, with no MDM. Ask ChatGPT about your organization's devices, their check results, how well they meet your policy, and software versions and known vulnerabilities (CVEs). Read-only, and scoped to the one organization the signed-in user approves. |
+| ChatGPT `subtitle` | Query your device-trust data | See which devices pass checks |
+| ChatGPT `description` | XFA's remote MCP server lets your team query their organization's device posture, compliance summary, policies, and tracked-software/CVE status from ChatGPT. Read-only and scoped to the single organization the signed-in user approves. | XFA does two things: Discover all devices and Verify device security at sign-in. When a check fails, people fix it themselves, with Fix where XFA offers one or a step by step guide. It covers company, personal and contractor laptops and phones, with no MDM. Ask ChatGPT about your organization's devices, their check results, how well they meet your policy, and OS and browser versions and known vulnerabilities (CVEs). Read-only, and scoped to the one organization the signed-in user approves. |
 | ChatGPT test case `list_devices` expected output | … with their trust status. | … with their check results. |
 | ChatGPT negative test case (weather) | … outside its device-trust workflows. | … outside its device security questions. |
 
@@ -62,7 +75,8 @@ xfa.tech `public/llms.txt` on main and the server instructions in xfa-api#892
 
 - `jq . <file>` parses for every JSON file.
 - The `MCP Registry` workflow runs `mcp-publisher validate server.json` on this PR.
-- `grep -rni 'device.trust'` finds nothing outside the changelog.
+- `grep -rni 'device.trust'` finds nothing outside the changelog and this spec.
+- `grep -rni 'every device'` finds nothing outside this spec.
 
 ## Left
 
@@ -74,3 +88,5 @@ xfa.tech `public/llms.txt` on main and the server instructions in xfa-api#892
 - Cursor Marketplace: the listing is still pending; update the submission if
   Cursor reads the text from the form rather than `plugin.json`.
 - Gemini: nothing to do, the gallery recrawls the repo.
+- Notify Anthropic of the changed descriptions (Software Directory Policy 3.H).
+- The GitHub repo topic `device-trust` should change to match; not done in this PR.

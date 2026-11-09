@@ -3,8 +3,8 @@
   "schema_version": 1,
   "app_info": {
     "display_name": "XFA",
-    "subtitle": "Ask about your device security",
-    "description": "XFA checks every device at sign-in and guides people to fix issues themselves, on company, personal and contractor laptops and phones, with no MDM. Ask ChatGPT about your organization's devices, their check results, how well they meet your policy, and software versions and known vulnerabilities (CVEs). Read-only, and scoped to the one organization the signed-in user approves.",
+    "subtitle": "See which devices pass checks",
+    "description": "XFA does two things: Discover all devices and Verify device security at sign-in. When a check fails, people fix it themselves, with Fix where XFA offers one or a step by step guide. It covers company, personal and contractor laptops and phones, with no MDM. Ask ChatGPT about your organization's devices, their check results, how well they meet your policy, and OS and browser versions and known vulnerabilities (CVEs). Read-only, and scoped to the one organization the signed-in user approves.",
     "category": "BUSINESS"
   },
   "tools": {
