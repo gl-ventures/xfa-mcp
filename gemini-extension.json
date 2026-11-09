@@ -1,7 +1,7 @@
 {
   "name": "xfa-mcp",
   "version": "0.1.0",
-  "description": "XFA device security in Gemini: ask about your organization's devices, check results, policy status, and whether OS and browser are up to date, and CVEs. Read-only.",
+  "description": "User-driven device security: XFA verifies devices at sign-in and people fix issues themselves. Ask Gemini about your organization's devices, check results, policy status and CVEs. Read-only.",
   "mcpServers": {
     "xfa": {
       "httpUrl": "https://mcp.xfa.tech/mcp",
