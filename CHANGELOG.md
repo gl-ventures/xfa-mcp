@@ -2,7 +2,7 @@
 
 ## 0.1.3
 
-- Match the xfa.tech value proposition (XFA-3775): descriptions lead with what XFA does ("Discover all devices", "Verify device security at sign-in") and what you can ask the server, instead of "device trust". Blocking depends on the organization's policy and plan. Add the server `title`.
+- Match the xfa.tech value proposition (XFA-3775): descriptions lead with XFA's main value ("Verify device security at sign-in", with people installing the app and fixing issues themselves), then "Discover all devices" and what you can ask the server, instead of "device trust". Blocking depends on the organization's policy and plan. Add the server `title`.
 
 ## 0.1.2
 

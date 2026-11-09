@@ -1,6 +1,6 @@
 # XFA MCP
 
-[XFA](https://xfa.tech)'s two main features are **Discover all devices** and **Verify device security at sign-in**. When a check fails, people fix it themselves: they press Fix and approve the suggested fix where XFA offers one, or follow a step by step guide, and XFA checks again. It covers company, personal and contractor laptops and phones with no MDM. It can warn people before blocking them; whether a sign-in gets a warning or a block depends on your organization's policy and plan.
+[XFA](https://xfa.tech) is user-driven device security that keeps work moving. Its main value is **Verify device security at sign-in**: XFA checks every device at sign-in and warns people first. People are prompted to install the XFA app themselves at their first sign-in, and they fix issues themselves: they press Fix and approve the suggested fix where XFA offers one, or follow a step by step guide, and XFA checks again. It covers company, personal and contractor laptops and phones, with no IT team or MDM needed; your organization's settings decide what gets blocked. XFA can also **Discover all devices** through your identity provider.
 
 This is **XFA device security**, XFA's remote [Model Context Protocol](https://modelcontextprotocol.io) server. Ask Claude, ChatGPT, Cursor and other AI assistants about your organization's devices, their check results, how well they meet your policy, and whether the OS and last-used browser are up to date, and known vulnerabilities (CVEs). Read-only, and scoped to the one organization you approve when you sign in.
 

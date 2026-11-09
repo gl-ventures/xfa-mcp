@@ -85,6 +85,10 @@ last-used browser's name and whether it is up to date; "warns first" is not
 always true; "two things" was too exclusive; no tool returns sign-in data, so
 the Registry line no longer says "sign-in checks".
 
+- Lars, 2026-11-09: "XFA checks every device" and "warns people first" stay in the README and ChatGPT text. They are the marketing value; settings are the exception.
+
+- Lars, 2026-11-09: Verify device security at sign-in is the actual value (self-install, Fix buttons); user-driven leads (2026-10-12); Discover all devices comes second.
+
 ## Left
 
 - Merge xfa-api#892 so the live server's title and instructions match.
