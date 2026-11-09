@@ -19,8 +19,8 @@ xfa.tech `public/llms.txt` on main and the server instructions in xfa-api#892
 - Category word: "device security". Never "device trust".
 - Fixing: a Fix button the person approves, where XFA offers one, or a step by step
   guide; XFA checks again.
-- Company, personal and contractor laptops and phones, no MDM. Warns first; whether
-  a sign-in is blocked depends on the organization's policy and plan.
+- Company, personal and contractor laptops and phones, no MDM. Warns people first;
+  your organization's settings decide what gets blocked.
 - The server: read-only, scoped to the one organization the signed-in user approves;
   answers questions about the organization's devices, their check results, how well
   they meet its policy, and whether the OS and last-used browser are up to date, and known vulnerabilities (CVEs).
@@ -30,8 +30,9 @@ xfa.tech `public/llms.txt` on main and the server instructions in xfa-api#892
 - Lars, 2026-11-09: the two feature names are "Discover all devices" and "Verify
   device security at sign-in". "Discovery" and "Enforcement" are out. Listings lead
   with these names.
-- 2026-11-09: "XFA checks every device" is removed everywhere. It is false:
-  application filters and Skip managed devices let sign-ins through unchecked.
+- Lars, 2026-11-09: "XFA checks every device" stays in the README and ChatGPT
+  text. It is the marketing value; application filters and Skip managed devices
+  are the exception.
 - 2026-11-09: "blocks only when your organization chooses" became "depends on the
   organization's policy and plan", because the plan decides too.
 - 2026-11-09: "software versions and CVEs" read as an inventory of the
@@ -76,14 +77,12 @@ xfa.tech `public/llms.txt` on main and the server instructions in xfa-api#892
 - `jq . <file>` parses for every JSON file.
 - The `MCP Registry` workflow runs `mcp-publisher validate server.json` on this PR.
 - `grep -rni 'device.trust'` finds nothing outside the changelog and this spec.
-- `grep -rni 'every device'` finds nothing outside this spec.
 
 ## Review (2026-11-09)
 
 A second fresh review found: the server returns no browser version, only the
-last-used browser's name and whether it is up to date; "warns first" is not
-always true; "two things" was too exclusive; no tool returns sign-in data, so
-the Registry line no longer says "sign-in checks".
+last-used browser's name and whether it is up to date; no tool returns sign-in
+data, so the Registry line no longer says "sign-in checks".
 
 - Lars, 2026-11-09: "XFA checks every device" and "warns people first" stay in the README and ChatGPT text. They are the marketing value; settings are the exception.
 
