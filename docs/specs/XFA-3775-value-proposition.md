@@ -87,7 +87,7 @@ data, so the Registry line no longer says "sign-in checks".
 
 - Lars, 2026-11-09: Verify device security at sign-in is the actual value (self-install, Fix buttons); user-driven leads (2026-10-12); Discover all devices comes second.
 
-- Assumption, Lars can veto (2026-11-10): the Registry, Gemini and Cursor descriptions lead with the same message as the README, not only with what you can ask the server.
+- Lars, 2026-11-10: the Registry, Gemini and Cursor descriptions lead with the same message as the README, not only with what you can ask the server.
 
 ## Left
 
