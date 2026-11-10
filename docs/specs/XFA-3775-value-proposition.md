@@ -32,8 +32,8 @@ xfa.tech `public/llms.txt` on main and the server instructions in xfa-api#892
 - Lars, 2026-11-09: "XFA checks every device" stays in the README and ChatGPT
   text. It is the marketing value; application filters and Skip managed devices
   are the exception.
-- 2026-11-09: "blocks only when your organization chooses" became "depends on the
-  organization's policy and plan", because the plan decides too.
+- 2026-11-09: "blocks only when your organization chooses" became "is decided by
+  your organization's settings", because the plan decides too.
 - 2026-11-09: "software versions and CVEs" read as an inventory of the
   organization's software. Per device the server only knows the OS and last-used
   browser; the version tools read XFA's global catalog. Listings now say "whether the OS and
@@ -42,7 +42,7 @@ xfa.tech `public/llms.txt` on main and the server instructions in xfa-api#892
   (tool names checked against xfa-api#892).
 - `server.json` gets a `title` of "XFA device security", matching the server's
   own title in xfa-api#892. Schema limit: 100 characters for `title` and
-  `description`; the new description is 95.
+  `description`; the new description is 94.
 - `server.json` version 0.1.2 → 0.1.3: the MCP Registry rejects a republish of an
   existing version. Gemini and Cursor manifest versions stay at 0.1.0 (the
   Gemini gallery crawls the repo; the Cursor listing is still pending review).
@@ -87,7 +87,6 @@ data, so the Registry line no longer says "sign-in checks".
 
 - Lars, 2026-11-09: Verify device security at sign-in is the actual value (self-install, Fix buttons); user-driven leads (2026-10-12); Discover all devices comes second.
 
-- Assumption, Lars can veto (2026-11-10): the Registry, Gemini and Cursor descriptions lead with the same message as the README, not only with what you can ask the server.
 
 ## Research and final copy (2026-11-10)
 
@@ -100,10 +99,12 @@ Claude listing edits wait for review; an OpenAI change is a new reviewed
 version, so the first submission must already be defensible.
 
 So: short fields (Registry 100, Claude one-liner 200, ChatGPT subtitle 30,
-Cursor, Gemini) say what you can ask, read-only, and that owners' names and
-emails are never shown. Long descriptions (ChatGPT, Claude directory) open with
-Lars's message in the site's words, then what you can ask, intended users,
-what it reads and its limits. The Claude directory text lives in
+Cursor, Gemini) say what you can ask and that it is read-only; all but the
+Registry and the subtitle (no room) add that people's names and emails are never
+shown. Long descriptions (ChatGPT, Claude directory) open with
+Lars's message in the site's words, then what you can ask, what it reads and its
+limits; ChatGPT also has intended users. "People who use the devices", not
+"owners", on every surface, as in the docs. The Claude directory text lives in
 `listings/claude-connectors-directory.md`, ready to paste.
 
 Zero-context readers (haiku, sonnet, gpt-5.6-luna) as an IT admin: all three
