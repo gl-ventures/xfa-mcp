@@ -59,13 +59,13 @@ xfa.tech `public/llms.txt` on main and the server instructions in xfa-api#892
 | README tools: `get_compliance_summary` | Org-wide compliance summary | How well the organization meets its policy |
 | README tools: `get_posture_trends` | Posture trends over time | A few check figures over time |
 | server.json `title` | (none) | XFA device security |
-| server.json `description` | XFA's remote MCP server — query device posture, compliance, policies & CVEs. Read-only. | User-driven device security: verify devices at sign-in. Ask which pass or have CVEs. Read-only. |
+| server.json `description` | XFA's remote MCP server — query device posture, compliance, policies & CVEs. Read-only. | XFA device security, read-only: which devices pass their checks or have known vulnerabilities. |
 | server.json `version` | 0.1.2 | 0.1.3 |
-| gemini-extension.json `description` | XFA's remote MCP server — query your organization's device posture, compliance, policies, and software/CVE status from Gemini. Read-only. | User-driven device security: XFA verifies devices at sign-in and people fix issues themselves. Ask Gemini about your organization's devices, check results, policy status and CVEs. Read-only. |
-| .cursor-plugin/plugin.json `description` | XFA's remote MCP server — query your organization's device posture, compliance, policies, and software/CVE status from an AI assistant. Read-only. | User-driven device security: XFA verifies devices at sign-in and people fix issues themselves. Ask your AI assistant about your organization's devices, check results, policy status and CVEs. Read-only. |
+| gemini-extension.json `description` | XFA's remote MCP server — query your organization's device posture, compliance, policies, and software/CVE status from Gemini. Read-only. | XFA device security in Gemini, read-only: see which of your organization's devices pass their security checks, which need fixing, and which have known vulnerabilities (CVEs). Never shows owners' names or emails. |
+| .cursor-plugin/plugin.json `description` | XFA's remote MCP server — query your organization's device posture, compliance, policies, and software/CVE status from an AI assistant. Read-only. | XFA device security, read-only: see which of your organization's devices pass their security checks, which need fixing, and which have known vulnerabilities (CVEs). Never shows owners' names or emails. |
 | .cursor-plugin/plugin.json `keywords` | device-trust | device-security |
 | ChatGPT `subtitle` | Query your device-trust data | See which devices pass checks |
-| ChatGPT `description` | XFA's remote MCP server lets your team query their organization's device posture, compliance summary, policies, and tracked-software/CVE status from ChatGPT. Read-only and scoped to the single organization the signed-in user approves. | XFA is user-driven device security. It verifies device security at sign-in: XFA checks every device and warns people first, people are prompted to install the XFA app themselves, and they fix issues themselves with Fix where XFA offers one or a step by step guide. It covers company, personal and contractor laptops and phones, with no MDM. XFA can also discover all devices. Ask ChatGPT about your organization's devices, their check results, how well they meet your policy, and whether the OS and last-used browser are up to date, and known vulnerabilities (CVEs). Read-only, and scoped to the one organization the signed-in user approves. |
+| ChatGPT `description` | XFA's remote MCP server lets your team query their organization's device posture, compliance summary, policies, and tracked-software/CVE status from ChatGPT. Read-only and scoped to the single organization the signed-in user approves. | Ask about the devices in your XFA organization: which ones pass their security checks, which need fixing, and how that changes over time. XFA is user-driven device security. It checks the security of every device when someone signs in to work apps, on company-owned, personal and contractor laptops and phones, and warns people first. People install the XFA app themselves at their first sign-in, and when a check fails they fix it themselves, with the Fix button where XFA offers one or a step by step guide. XFA also finds devices through your sign-in system (your identity provider). This connector lets the assistant read those results. It cannot change anything, and it never shows the names or emails of the people who own the devices. (then what you can ask, intended users, what it reads, limits) |
 | ChatGPT test case `list_devices` expected output | … with their trust status. | … with their check results. |
 | ChatGPT negative test case (weather) | … outside its device-trust workflows. | … outside its device security questions. |
 
@@ -88,6 +88,30 @@ data, so the Registry line no longer says "sign-in checks".
 - Lars, 2026-11-09: Verify device security at sign-in is the actual value (self-install, Fix buttons); user-driven leads (2026-10-12); Discover all devices comes second.
 
 - Assumption, Lars can veto (2026-11-10): the Registry, Gemini and Cursor descriptions lead with the same message as the README, not only with what you can ask the server.
+
+## Research and final copy (2026-11-10)
+
+Lars rejected leading the short listings with the pitch on assumption and asked
+for research, then a fresh read of xfa.tech. Findings: about 7 in 10 official
+one-liners open with what you can do (Linear, Atlassian, GitHub); value-first
+ones switch to actions in the next sentence. Anthropic policy 2.B wants listing
+text to match what the connector does, and this connector only reads results.
+Claude listing edits wait for review; an OpenAI change is a new reviewed
+version, so the first submission must already be defensible.
+
+So: short fields (Registry 100, Claude one-liner 200, ChatGPT subtitle 30,
+Cursor, Gemini) say what you can ask, read-only, and that owners' names and
+emails are never shown. Long descriptions (ChatGPT, Claude directory) open with
+Lars's message in the site's words, then what you can ask, intended users,
+what it reads and its limits. The Claude directory text lives in
+`listings/claude-connectors-directory.md`, ready to paste.
+
+Zero-context readers (haiku, sonnet, gpt-5.6-luna) as an IT admin: all three
+got what it does, that it changes nothing, and that it never shows owners'
+names. Fixed from their notes: Registry line was 105 characters; privacy wording
+differed per surface; "XFA" unexplained in short lines; "your rules" vs "XFA's
+checks". Kept on Lars's decision: "every device", "warns people first",
+"user-driven".
 
 ## Left
 

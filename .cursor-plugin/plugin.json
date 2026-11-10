@@ -1,6 +1,6 @@
 {
   "name": "xfa-mcp",
-  "description": "User-driven device security: XFA verifies devices at sign-in and people fix issues themselves. Ask your AI assistant about your organization's devices, check results, policy status and CVEs. Read-only.",
+  "description": "XFA device security, read-only: see which of your organization's devices pass their security checks, which need fixing, and which have known vulnerabilities (CVEs). Never shows owners' names or emails.",
   "version": "0.1.0",
   "author": {
     "name": "XFA",
