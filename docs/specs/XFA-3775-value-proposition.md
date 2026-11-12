@@ -61,11 +61,11 @@ xfa.tech `public/llms.txt` on main and the server instructions in xfa-api#892
 | server.json `title` | (none) | XFA device security |
 | server.json `description` | XFA's remote MCP server — query device posture, compliance, policies & CVEs. Read-only. | XFA device security, read-only: which devices pass their checks or have known vulnerabilities. |
 | server.json `version` | 0.1.2 | 0.1.3 |
-| gemini-extension.json `description` | XFA's remote MCP server — query your organization's device posture, compliance, policies, and software/CVE status from Gemini. Read-only. | XFA device security in Gemini, read-only: see which of your organization's devices pass their security checks, which need fixing, and which have known vulnerabilities (CVEs). Never shows owners' names or emails. |
-| .cursor-plugin/plugin.json `description` | XFA's remote MCP server — query your organization's device posture, compliance, policies, and software/CVE status from an AI assistant. Read-only. | XFA device security, read-only: see which of your organization's devices pass their security checks, which need fixing, and which have known vulnerabilities (CVEs). Never shows owners' names or emails. |
+| gemini-extension.json `description` | XFA's remote MCP server — query your organization's device posture, compliance, policies, and software/CVE status from Gemini. Read-only. | XFA device security in Gemini, read-only: see which of your organization's devices pass their security checks, which need fixing, and which have known vulnerabilities (CVEs). Device results carry no names or emails. |
+| .cursor-plugin/plugin.json `description` | XFA's remote MCP server — query your organization's device posture, compliance, policies, and software/CVE status from an AI assistant. Read-only. | XFA device security, read-only: see which of your organization's devices pass their security checks, which need fixing, and which have known vulnerabilities (CVEs). Device results carry no names or emails. |
 | .cursor-plugin/plugin.json `keywords` | device-trust | device-security |
 | ChatGPT `subtitle` | Query your device-trust data | See which devices pass checks |
-| ChatGPT `description` | XFA's remote MCP server lets your team query their organization's device posture, compliance summary, policies, and tracked-software/CVE status from ChatGPT. Read-only and scoped to the single organization the signed-in user approves. | Ask about the devices in your XFA organization: which ones pass their security checks, which need fixing, and how that changes over time. XFA is user-driven device security. It checks the security of every device when someone signs in to work apps, on company-owned, personal and contractor laptops and phones, and warns people first. People install the XFA app themselves at their first sign-in, and when a check fails they fix it themselves, with the Fix button where XFA offers one or a step by step guide. XFA also finds devices through your sign-in system (your identity provider). This connector lets the assistant read those results. It cannot change anything, and it never shows the names or emails of the people who own the devices. (then what you can ask, intended users, what it reads, limits) |
+| ChatGPT `description` | XFA's remote MCP server lets your team query their organization's device posture, compliance summary, policies, and tracked-software/CVE status from ChatGPT. Read-only and scoped to the single organization the signed-in user approves. | Ask about the devices in your XFA organization: which ones pass their security checks, which need fixing, and how that changes over time, for example before an audit or a customer security review. XFA is user-driven device security that keeps work moving, for fast-growing tech companies, often without an IT team. It checks the security of every device when someone signs in to work apps, on company-issued, personal and contractor laptops and phones, and warns people first. It takes no control of the device. People install the XFA app themselves at their first sign-in, and when a check fails they fix it themselves, with the Fix button where XFA offers one or a step by step guide. XFA also finds devices through your identity provider. This connector lets the assistant read those results. It cannot change anything, and device results carry no names or emails of the people who use them. (then what you can ask, intended users, what it reads, limits) |
 | ChatGPT test case `list_devices` expected output | … with their trust status. | … with their check results. |
 | ChatGPT negative test case (weather) | … outside its device-trust workflows. | … outside its device security questions. |
 
@@ -100,8 +100,7 @@ version, so the first submission must already be defensible.
 
 So: short fields (Registry 100, Claude one-liner 200, ChatGPT subtitle 30,
 Cursor, Gemini) say what you can ask and that it is read-only; all but the
-Registry and the subtitle (no room) add that people's names and emails are never
-shown. Long descriptions (ChatGPT, Claude directory) open with
+Registry and the subtitle (no room) add that device results carry no names or emails. Long descriptions (ChatGPT, Claude directory) open with
 Lars's message in the site's words, then what you can ask, what it reads and its
 limits; ChatGPT also has intended users. "People who use the devices", not
 "owners", on every surface, as in the docs. The Claude directory text lives in
@@ -113,6 +112,24 @@ names. Fixed from their notes: Registry line was 105 characters; privacy wording
 differed per surface; "XFA" unexplained in short lines; "your rules" vs "XFA's
 checks". Kept on Lars's decision: "every device", "warns people first",
 "user-driven".
+
+## Marketing drive check (2026-11-12)
+
+Lars asked whether the marketing folder was checked. Read the `[AI] Marketing
+Assistant` drive: Positioning (XFA Positioning, ICP and Personas, 30 Sep, wins
+over other docs), XFA Messaging, Ads - New messaging, the Oct-Nov ads and
+product-marketing.md. The copy fit; added from it: headline "keeps work moving",
+audience "fast-growing tech companies, often without an IT team", "takes no
+control of the device", "company-issued", and the audit or customer security
+review use. "Never shows people's names or emails" became "Device results carry
+no names or emails", because get_current_user returns the signed-in user's own
+email. Words out per product-marketing.md (tool, login, manage or control,
+agentless, trial, invented stats) are not used. The Claude description drops
+two example questions to stay under 2,000 characters.
+Readers (haiku, sonnet, gpt-5.6-luna) on the new opening: all got who it is
+for, read-only, and no names; device results have no device name or hostname
+either (checked DeviceOut). Their flags on "every device" and the headline
+words are Lars's settled calls.
 
 ## Left
 

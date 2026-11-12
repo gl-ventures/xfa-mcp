@@ -4,21 +4,18 @@ Paste these into the listing form at claude.ai/directory/manage. Every edit
 there waits for Anthropic's review, and Software Directory Policy 3.H asks us to
 report material changes to tool or capability descriptions.
 
-## One-liner (195/200)
+## One-liner (198/200)
 
-XFA device security, read-only: ask which of your organization's devices pass their security checks, which need fixing, and which have known vulnerabilities. Never shows people's names or emails.
+XFA device security, read-only: ask which of your organization's devices pass their security checks, which need fixing, and which have known vulnerabilities. Device results carry no names or emails.
 
-## Description (1990/2,000)
+## Description (1989/2,000)
 
-Ask about the devices in your XFA organization: which ones pass their security checks, which need fixing, and how that changes over time. XFA is user-driven device security. It checks the security of every device when someone signs in to work apps, on company-owned, personal and contractor laptops and phones, and warns people first. People install the XFA app themselves at their first sign-in, and when a check fails they fix it themselves, with the Fix button where XFA offers one or a step by step guide. XFA also finds devices through your sign-in system (your identity provider). This connector lets the assistant read those results. It cannot change anything, and it never shows the names or emails of the people who use the devices.
+Ask about the devices in your XFA organization: which ones pass their security checks, which need fixing, and how that changes over time, for example before an audit or a customer security review. XFA is user-driven device security that keeps work moving, for fast-growing tech companies, often without an IT team. It checks the security of every device when someone signs in to work apps, on company-issued, personal and contractor laptops and phones, and warns people first. It takes no control of the device. People install the XFA app themselves at their first sign-in, and when a check fails they fix it themselves, with the Fix button where XFA offers one or a step by step guide. XFA also finds devices through your identity provider. This connector lets the assistant read those results. It cannot change anything, and device results carry no names or emails of the people who use them.
 
 What you can ask:
 - Which devices do not meet our policy, and what fails on each?
 - Which devices have an out of date operating system, or disk encryption off?
-- What do jane@example.com's devices look like?
-- How many people still have no verified device?
 - Which devices are affected by a given CVE?
-- How has disk encryption changed over the last 90 days?
 
 What it reads, per device: OS and version, if the OS and the last-used browser are up to date (not the browser's version), check results, if it meets your policy, verified (checked directly by XFA) or only discovered, and CVE ids on request.
 

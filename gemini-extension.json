@@ -1,7 +1,7 @@
 {
   "name": "xfa-mcp",
   "version": "0.1.0",
-  "description": "XFA device security in Gemini, read-only: see which of your organization's devices pass their security checks, which need fixing, and which have known vulnerabilities (CVEs). Never shows people's names or emails.",
+  "description": "XFA device security in Gemini, read-only: see which of your organization's devices pass their security checks, which need fixing, and which have known vulnerabilities (CVEs). Device results carry no names or emails.",
   "mcpServers": {
     "xfa": {
       "httpUrl": "https://mcp.xfa.tech/mcp",
