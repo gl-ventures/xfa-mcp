@@ -1,8 +1,9 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "tech.xfa/xfa",
-  "description": "XFA's remote MCP server — query device posture, compliance, policies & CVEs. Read-only.",
-  "version": "0.1.2",
+  "title": "XFA device security",
+  "description": "XFA device security, read-only: which devices pass their checks or have known vulnerabilities.",
+  "version": "0.1.3",
   "websiteUrl": "https://xfa.tech",
   "repository": {
     "url": "https://github.com/gl-ventures/xfa-mcp",
