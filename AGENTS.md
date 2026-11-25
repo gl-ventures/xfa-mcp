@@ -7,8 +7,8 @@ specs, changelog, commit messages and PR text, is readable by anyone.
 
 - Describe only what a customer's connection offers: the customer tools, their
   fields and their limits.
-- Never mention staff or system-administrator tools, internal analytics,
-  internal role names, other repositories' internal pull requests or code paths,
+- Never mention anything that is not part of a customer's connection: other
+  tools or roles, other repositories, their pull requests or code paths,
   people's names, test accounts, or infrastructure.
 - Specs in `docs/specs/` are public too. Write them for that audience: the
   problem, the decisions and why, how to validate, what is left. Say "customer-facing
@@ -26,7 +26,7 @@ locally first:
 scripts/check-public.sh
 ```
 
-It fails when a tracked file matches `staff`, `system_admin`, `system admin`,
-`internal`, `athena` or `analytics_` (case-insensitive). Real false positives go
+It fails when a tracked file matches one of the words listed in the script
+(case-insensitive). Real false positives go
 in `scripts/check-public-allowlist.txt`, one `path:line text` entry per line
 (a fixed string matched against the `git grep -n` output line).
