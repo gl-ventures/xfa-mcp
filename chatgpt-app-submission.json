@@ -4,7 +4,7 @@
   "app_info": {
     "display_name": "XFA",
     "subtitle": "See which devices pass checks",
-    "description": "Ask about the devices in your XFA organization: which ones pass their security checks, which need fixing, and how that changes over time, for example before an audit or a customer security review. XFA is user-driven device security that keeps work moving, for fast-growing tech companies, often without an IT team. It checks the security of every device when someone signs in to work apps, on company-issued, personal and contractor laptops and phones, and warns people first. It takes no control of the device. People install the XFA app themselves at their first sign-in, and when a check fails they fix it themselves, with the Fix button where XFA offers one or a step by step guide. XFA also finds devices through your identity provider. This connector lets the assistant read those results. It cannot change anything, and device results carry no names or emails of the people who use them.\n\nWhat you can ask:\n- Which devices do not meet our policy, and what fails on each?\n- Which devices have an out of date operating system, or disk encryption off?\n- What do jane@example.com's devices look like?\n- How many people still have no verified device?\n- Which devices are affected by a given CVE?\n- How has disk encryption changed over the last 90 days?\n\nIntended users: admins and security or IT leads of an organization that uses XFA, who want answers about their devices without opening the dashboard, for example to prepare an audit or follow up on a vulnerability. A person can only connect with their own XFA account, to an organization they have access to.\n\nWhat it reads, per device: the operating system and version; if the operating system and the last-used browser are up to date (the browser's name, not its version); security check results, for example disk encryption, screen lock and firewall; if the device meets your policy; verified (checked directly by XFA, usually through the XFA app) or only discovered through your identity provider; and, on request, known vulnerabilities (CVE ids).\n\nLimits:\n- Read-only. It cannot change settings, policies or devices, and it cannot start a fix. People fix their own devices in the XFA app.\n- Only the one organization you approve when you connect.\n- It cannot see your XFA plan, your policy rules or your settings, for example which sign-ins are checked or which checks warn or block. Your XFA dashboard shows those.\n- Device lists and counts cover devices seen in the last 30 days; trends go back up to 180 days. Discovered devices show less than verified ones, and some details depend on your plan.\n- Software version and vulnerability lookups describe software in general, not your devices.",
+    "description": "Ask about the devices in your XFA organization: which ones pass their security checks, which need fixing, and how that changes over time, for example before an audit or a customer security review. XFA is user-driven device security that keeps work moving, for fast-growing tech companies, often without an IT team. It checks the security of every device when someone signs in to work apps, on company-issued, personal and contractor laptops and phones, and warns people first. It takes no control of the device. People install the XFA app themselves at their first sign-in, and when a check fails they fix it themselves, with the Fix button where XFA offers one or a step by step guide. XFA also finds devices through your identity provider. This connector lets the assistant read those results. It cannot change anything.\n\nWhat you can ask:\n- Which devices do not meet our policy, and what fails on each?\n- Which devices have an out of date operating system, or disk encryption off?\n- What do jane@example.com's devices look like?\n- How many people still have no verified device?\n- Which checks does our policy require, and which only warn?\n- Which devices are affected by a given CVE?\n- How has disk encryption changed over the last 90 days?\n\nIntended users: admins and security or IT leads of an organization that uses XFA, who want answers about their devices without opening the dashboard, for example to prepare an audit or follow up on a vulnerability. A person connects with their own XFA account, and sees what their role in each organization allows in the dashboard.\n\nWhat it reads:\n- Per device: the email of the person who uses it, their name and the computer's name where known, the make and model, the operating system and its version, the browser and its version, and which of them are up to date.\n- Per device check results, for example disk encryption, screen lock, firewall, antivirus, password manager and remote access settings, plus the versions of common work apps such as Slack, Zoom and Microsoft Office.\n- Whether the device meets your policy, whether it is verified (checked directly by XFA, usually through the XFA app) or only discovered through your identity provider, and the tags and notes your admins gave it.\n- On request, the known vulnerabilities (CVE ids) of a device's operating system and browser.\n- Your policies, with the checks each one requires and whether a failing check warns or blocks a sign-in.\n- Your organization's name, contact details, settings and plan features, and who you are in XFA with your role.\n- Company-wide figures, such as how many devices and people are verified or compliant, and the same figures day by day.\n- General lookups of the latest version and known vulnerabilities of common software. These do not describe your devices.\n\nLimits:\n- Read-only. It cannot change settings, policies, tags or devices, and it cannot start a fix. People fix their own devices in the XFA app.\n- Only the organizations you approve when you connect. It reads one organization at a time.\n- Counts of devices and people in the company-wide figures cover the last 30 days. Device lists follow the dashboard's 30 days unless you ask for another period.\n- Day by day figures come 30 days at a time, so a longer period takes several steps.\n- Discovered devices show less than verified ones, and some details depend on your plan. A missing check means unknown, not failing.",
     "category": "BUSINESS"
   },
   "tools": {
@@ -32,11 +32,27 @@
         "destructive_justification": "Does not delete, overwrite, revoke access, or perform any irreversible action."
       }
     },
+    "list_user_devices": {
+      "annotations": { "readOnlyHint": true, "openWorldHint": false, "destructiveHint": false },
+      "justifications": {
+        "read_only_justification": "Only retrieves the devices of one person, by email, and does not modify data.",
+        "open_world_justification": "Reads only the organization's private device records and does not touch external systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform any irreversible action."
+      }
+    },
     "get_device": {
       "annotations": { "readOnlyHint": true, "openWorldHint": false, "destructiveHint": false },
       "justifications": {
         "read_only_justification": "Only retrieves a single device's details and does not modify data.",
         "open_world_justification": "Reads only one device record from the organization's private XFA data and does not touch external systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform any irreversible action."
+      }
+    },
+    "list_device_tags": {
+      "annotations": { "readOnlyHint": true, "openWorldHint": false, "destructiveHint": false },
+      "justifications": {
+        "read_only_justification": "Only lists the tags administrators gave the organization's devices and does not modify data.",
+        "open_world_justification": "Reads only the organization's private device tags and does not touch external systems.",
         "destructive_justification": "Does not delete, overwrite, revoke access, or perform any irreversible action."
       }
     },
@@ -59,8 +75,8 @@
     "list_policies": {
       "annotations": { "readOnlyHint": true, "openWorldHint": false, "destructiveHint": false },
       "justifications": {
-        "read_only_justification": "Only lists the organization's policies and does not modify data.",
-        "open_world_justification": "Reads only the organization's private policy configuration and does not touch external systems.",
+        "read_only_justification": "Only lists the organization's policies and their rules and does not modify data.",
+        "open_world_justification": "Reads only the organization's private policy rules and does not touch external systems.",
         "destructive_justification": "Does not delete, overwrite, revoke access, or perform any irreversible action."
       }
     },
@@ -123,6 +139,14 @@
       "expected_output_url": null
     },
     {
+      "description": "Look up one person's devices.",
+      "user_prompt": "What do jane@example.com's devices look like?",
+      "file_attachment_urls": null,
+      "tools_triggered": "list_user_devices",
+      "expected_output": "Returns the devices of that person with their check results.",
+      "expected_output_url": null
+    },
+    {
       "description": "Review configured security policies.",
       "user_prompt": "Which security policies do we have configured?",
       "file_attachment_urls": null,
@@ -136,6 +160,22 @@
       "file_attachment_urls": null,
       "tools_triggered": "get_cves_for_version",
       "expected_output": "Returns the CVEs XFA tracks for that software version, if any.",
+      "expected_output_url": null
+    },
+    {
+      "description": "List device tags.",
+      "user_prompt": "Which groups of devices do we have?",
+      "file_attachment_urls": null,
+      "tools_triggered": "list_device_tags",
+      "expected_output": "Returns the tags administrators gave the organization's devices.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Show how a policy treats failing checks.",
+      "user_prompt": "Which checks does our policy require, and which only warn?",
+      "file_attachment_urls": null,
+      "tools_triggered": "list_policies",
+      "expected_output": "Returns each policy's rules: which checks are on and whether a failing check warns or blocks a sign-in.",
       "expected_output_url": null
     }
   ],
