@@ -96,3 +96,14 @@ your plan"); who may connect (not verified here, so not claimed).
 
 `python3 -m json.tool chatgpt-app-submission.json`; compare the `tools` keys with
 `customerRoutes` and the four version tools on xfa-api `origin/main`.
+
+## Claude directory reader (haiku, zero context)
+
+Facts matched the code (emails and device details seen, read-only, approved
+organizations only). One real finding: the example "affected by a given CVE"
+seemed to contradict "lookups describe software in general". Fixed in both the
+Claude and ChatGPT text: a software version lookup says nothing about your
+devices, and device CVEs come with the device results (`add_cves`). Also reworded
+the day by day limit. Not acted on: verified vs discovered (defined inline),
+plan-dependent details, CVE and identity provider jargon, data retention at the
+assistant (not ours).
