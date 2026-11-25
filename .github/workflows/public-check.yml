@@ -1,0 +1,20 @@
+name: Public repo check
+
+# This repository is public. The check fails when a tracked file mentions
+# words listed in AGENTS.md.
+
+on:
+  push:
+    branches: [main]  # keeps main clean after a merge
+  pull_request:  # blocks a change that adds such words before it merges
+
+permissions:
+  contents: read  # only reads the repository files
+
+jobs:
+  public-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check tracked files  # fails on the words listed in AGENTS.md
+        run: scripts/check-public.sh
