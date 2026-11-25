@@ -127,3 +127,26 @@ devices, and device CVEs come with the device results (`add_cves`). Also reworde
 the day by day limit. Not acted on: verified vs discovered (defined inline),
 plan-dependent details, CVE and identity provider jargon, data retention at the
 assistant (not ours).
+
+## Handover / current state
+
+This section lets anyone pick the work up from the branch alone.
+
+- **State (2026-11-25):** pull request open, not a draft. The public-text check
+  (`scripts/check-public.sh`) passes. No review yet, so not approved.
+- **Decisions:**
+  - 2026-11-25: the listing-truth work that first lived in a separate pull
+    request (now closed) is folded into this one, so there is one change and
+    one topic: the README and every listing say the same thing (part 2).
+  - The limit of 12 organizations per connection is the same on the connect
+    screen and on the server (see Decision above).
+  - Customer-facing text only: no code changes, tool names, ids and URLs stay.
+- **Merge order:** merge after the dashboard connect screen allows several
+  organizations in one connection, because the README and listings describe
+  that behaviour.
+- **Left:** after merge, resubmit the ChatGPT and Claude directory entries
+  (the texts in `chatgpt-app-submission.json` and
+  `listings/claude-connectors-directory.md` are what those reviewers read).
+- **Next step:** owner review of the diff, then code review. Re-check the 13
+  tool names against the live server's tool list right before merge.
+- **Open questions:** none.
