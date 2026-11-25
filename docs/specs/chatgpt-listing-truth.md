@@ -56,6 +56,21 @@ get_cves_for_version. All are read-only, closed world, not destructive
   answers. The listing says nothing about credentials either way, so it stays
   true before and after #988.
 
+## Same fixes in the other listings (coordinator, 2026-11-25)
+
+One topic, one PR: every listing says one thing.
+
+| Where | Before | After |
+| --- | --- | --- |
+| Claude directory one-liner | Device results carry no names or emails. | Results include each device user's email. |
+| Claude directory description | "...and device results carry no names or emails of the people who use them." | Removed. |
+| Claude directory "What it reads" | One line: OS, up to date "(not the browser's version)", checks, policy, verified, CVEs | Bullet list as in the ChatGPT text (email, names, make and model, versions, checks, work apps, tags and notes, policies and rules, settings and plan, company-wide figures). |
+| Claude directory limits | One organization; cannot see plan, policy rules or settings; lists and counts 30 days, trends 180 days | The organizations you approve, one at a time; company-wide counts 30 days, day by day in 30-day steps; unknown is not failing. The plan and rules line and the 180 days are gone. |
+| Claude directory examples | 3 | 4, adding jane@example.com's devices and "which only warn". Description stays under 2,000 characters (header says 1,995). The intro lost "for fast-growing tech companies, often without an IT team", "for example before an audit...", and "company-issued" became "company". |
+| gemini-extension.json | Device results carry no names or emails. | Device results include the email of the person who uses each device, and your policies and settings. |
+| README intro | scoped to the one organization you approve; no names or emails | limited to the organizations you approve; results include the user's email, and the policies, settings and plan |
+| README tools | list_devices "active in the last 30 days"; no list_user_devices or list_device_tags; list_policies "List policies"; "scoped to the signed-in user's org" | Added the two tools; list_policies says rules and warn or block; list_devices "grouped by the person who uses them (the dashboard shows the last 30 days)"; "limited to the organizations the signed-in user approved". |
+
 ## Reader check (haiku, zero context)
 
 See the table below. Prompt: "you're an IT admin considering connecting this to
@@ -75,9 +90,6 @@ your plan"); who may connect (not verified here, so not claimed).
 
 ## Left
 
-- Same false sentences exist in `listings/claude-connectors-directory.md`,
-  `gemini-extension.json` and `README.md` ("Device results carry no names or
-  emails"). Out of scope here; one follow-up PR once Lars confirms the wording.
 - The ChatGPT directory entry needs a resubmission after this merges.
 
 ## How to validate
