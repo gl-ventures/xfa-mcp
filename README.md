@@ -2,7 +2,7 @@
 
 [XFA](https://xfa.tech) is user-driven device security that keeps work moving. Its main value is **Verify device security at sign-in**: XFA checks every device at sign-in and warns people first. People are prompted to install the XFA app themselves at their first sign-in, and they fix issues themselves: they press Fix and approve the suggested fix where XFA offers one, or follow a step by step guide, and XFA checks again. It covers company, personal and contractor laptops and phones, with no IT team or MDM needed; your organization's settings decide what gets blocked. XFA can also **Discover all devices** through your identity provider.
 
-This is **XFA device security**, XFA's remote [Model Context Protocol](https://modelcontextprotocol.io) server. Ask Claude, ChatGPT, Cursor and other AI assistants about your organization's devices, their check results, how well they meet your policy, and whether the OS and last-used browser are up to date, and known vulnerabilities (CVEs). Read-only, and scoped to the one organization you approve when you sign in. Device results carry no names or emails of the people who use them.
+This is **XFA device security**, XFA's remote [Model Context Protocol](https://modelcontextprotocol.io) server. Ask Claude, ChatGPT, Cursor and other AI assistants about your organization's devices, their check results, how well they meet your policy, and whether the OS and last-used browser are up to date, and known vulnerabilities (CVEs). Read-only, and scoped to the organizations you approve when you sign in, up to 12 per connection. Device results include the email of the person who uses each device, and the policies, settings and plan of the organization.
 
 This repository is the **connector package** for AI marketplaces. The MCP server itself is hosted by XFA at `https://mcp.xfa.tech/mcp`; nothing runs locally. Authentication is OAuth 2.0 (PKCE) — you sign in with your XFA account on connect.
 
@@ -74,17 +74,19 @@ Point the client at the remote URL `https://mcp.xfa.tech/mcp` (streamable HTTP /
 
 All tools are read-only. The live server is the source of truth — clients fetch the current tool list from the endpoint on every connection, so this list may lag the deployed server. See the [Connect an AI assistant](https://docs.xfa.tech/admin/connect-ai-assistant) docs for the maintained reference.
 
-**Your organization** (scoped to the signed-in user's org)
+**Your organization** (limited to the organizations the signed-in user approved)
 
 | Tool | Description |
 | --- | --- |
-| `get_organization` | Get your XFA organization |
+| `get_organization` | Get your XFA organization: settings and plan features |
 | `get_current_user` | Get the signed-in user |
-| `list_devices` | List devices (active in the last 30 days) |
+| `list_devices` | List devices, grouped by the person who uses them (the dashboard shows the last 30 days) |
+| `list_user_devices` | List one person's devices, by email |
 | `get_device` | Get a single device |
+| `list_device_tags` | List the tags admins gave devices |
 | `get_compliance_summary` | How well the organization meets its policy |
 | `get_posture_trends` | A few check figures over time |
-| `list_policies` | List policies |
+| `list_policies` | List policies with their rules: which checks are on, and whether a failing check warns or blocks |
 
 **Software & vulnerabilities** (XFA's tracked-software catalog)
 
